@@ -37,8 +37,6 @@ import cloud.commandframework.fabric.data.MultiplePlayerSelector;
 import cloud.commandframework.fabric.data.SingleEntitySelector;
 import cloud.commandframework.fabric.data.SinglePlayerSelector;
 import cloud.commandframework.fabric.internal.EntitySelectorAccess;
-import cloud.commandframework.fabric.mixin.MessageArgumentMessageAccess;
-import cloud.commandframework.fabric.mixin.MessageArgumentPartAccess;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import java.util.Collection;
@@ -312,17 +310,14 @@ public final class FabricArgumentParsers {
                 final boolean useSelectors
         ) throws CommandSyntaxException {
             final Component contents = message.toComponent(source, useSelectors);
-            final MessageArgument.Part[] selectors =
-                    ((MessageArgumentMessageAccess) (Object) message).accessor$parts();
+            final MessageArgument.Part[] selectors = message.parts();
             final Collection<Entity> entities;
             if (!useSelectors || selectors.length == 0) {
                 entities = Collections.emptySet();
             } else {
                 entities = new HashSet<>();
                 for (final MessageArgument.Part selector : selectors) {
-                    entities.addAll(((MessageArgumentPartAccess) (Object) selector)
-                            .accessor$selector()
-                            .findEntities(source));
+                    entities.addAll(selector.selector().findEntities(source));
                 }
             }
 

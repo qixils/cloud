@@ -6,9 +6,7 @@
     "CloudStringReaderMixin",
     "CommandsMixin",
     "EntitySelectorMixin",
-    "EntitySelectorParserMixin",
-    "MessageArgumentMessageAccess",
-    "MessageArgumentPartAccess"
+    "EntitySelectorParserMixin"
   ],
   "injectors": {
     "defaultRequire": 1
