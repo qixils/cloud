@@ -45,7 +45,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.GenericDirtMessageScreen;
+import net.minecraft.client.gui.screens.GenericMessageScreen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
 import net.minecraft.commands.SharedSuggestionProvider;
@@ -137,14 +137,14 @@ public final class FabricClientExample implements ClientModInitializer {
         final boolean singlePlayer = client.hasSingleplayerServer();
         client.level.disconnect();
         if (singlePlayer) {
-            client.clearLevel(new GenericDirtMessageScreen(Component.translatable("menu.savingLevel")));
+            client.clearClientLevel(new GenericMessageScreen(Component.translatable("menu.savingLevel")));
         } else {
-            client.clearLevel();
+            client.clearClientLevel(new GenericMessageScreen(Component.literal("bye")));
         }
         if (singlePlayer) {
             client.setScreen(new TitleScreen());
-        } else if (client.isConnectedToRealms()) {
-            client.setScreen(new RealmsMainScreen(new TitleScreen()));
+//        } else if (client.isConnectedToRealms()) {
+//            client.setScreen(new RealmsMainScreen(new TitleScreen()));
         } else {
             client.setScreen(new JoinMultiplayerScreen(new TitleScreen()));
         }

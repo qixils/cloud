@@ -148,11 +148,12 @@ public final class ItemInputArgument<C> extends CommandArgument<C, ItemInput> {
          * @since 1.5.0
          */
         public @NonNull Builder<C> asOptionalWithDefault(final @NonNull ItemStack defaultValue) {
+            final String key = BuiltInRegistries.ITEM.getKey(defaultValue.getItem()).toString();
             final String serializedDefault;
-            if (defaultValue.hasTag()) {
-                serializedDefault = BuiltInRegistries.ITEM.getKey(defaultValue.getItem()) + defaultValue.getTag().toString();
+            if (!defaultValue.getComponents().isEmpty()) {
+                serializedDefault = key; // TODO: + defaultValue.getTag().toString();
             } else {
-                serializedDefault = BuiltInRegistries.ITEM.getKey(defaultValue.getItem()).toString();
+                serializedDefault = key;
             }
             return this.asOptionalWithDefault(serializedDefault);
         }

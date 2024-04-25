@@ -21,7 +21,7 @@ pluginManagement {
 
 plugins {
     id("ca.stellardrift.polyglot-version-catalogs") version "6.0.1"
-    id("quiet-fabric-loom") version "1.1-SNAPSHOT"
+    id("fabric-loom") version "1.6-SNAPSHOT"
 }
 
 dependencyResolutionManagement {

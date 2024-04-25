@@ -34,7 +34,11 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class CommandsMixin {
 
     /* Use our StringReader. This is technically optional, but it's nicer to avoid re-wrapping the object every time */
-    @Redirect(method = "performCommand", at = @At(value = "NEW", target = "com/mojang/brigadier/StringReader", remap = false), require = 0)
+    @Redirect(
+            method = "method_9240",
+            at = @At(value = "NEW", target = "com/mojang/brigadier/StringReader", remap = false),
+            require = 0
+    )
     private StringReader cloud$newStringReader(final String arguments) {
         return new CloudStringReader(arguments);
     }

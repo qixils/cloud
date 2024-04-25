@@ -29,6 +29,7 @@ import com.mojang.brigadier.StringReader;
 import java.util.Objects;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 
 
 /**
@@ -39,10 +40,13 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(value = CloudStringReader.class, remap = false)
 public class CloudStringReaderMixin implements StringReaderAsQueue {
 
+    @Unique
     private int cloud$nextSpaceIdx; /* the character before the start of a new word */
+    @Unique
     private @Nullable String cloud$nextWord;
 
     /* Next whitespace index starting at startIdx, or -1 if none is found */
+    @Unique
     private static int cloud$nextWhitespace(final String input, final int startIdx) {
         for (int i = startIdx, length = input.length(); i < length; ++i) {
             if (Character.isWhitespace(input.charAt(i))) {
@@ -60,6 +64,7 @@ public class CloudStringReaderMixin implements StringReaderAsQueue {
     /* Brigadier doesn't automatically consume whitespace... in order to get the matched behaviour, we consume whitespace
      * after every popped string.
      */
+    @Unique
     private void cloud$advance() {
         final int startOfNextWord = this.cloud$nextSpaceIdx + 1;
         this.cloud$nextSpaceIdx = cloud$nextWhitespace(((StringReader) (Object) this).getString(), startOfNextWord);

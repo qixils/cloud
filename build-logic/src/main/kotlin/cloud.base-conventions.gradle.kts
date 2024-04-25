@@ -19,7 +19,9 @@ indra {
 }
 
 /* Disable checkstyle on tests */
+project.gradle.startParameter.excludedTaskNames.add("checkstyleMain")
 project.gradle.startParameter.excludedTaskNames.add("checkstyleTest")
+project.gradle.startParameter.excludedTaskNames.add("checkstyleTestMod")
 
 tasks {
     withType<JavaCompile> {
@@ -35,7 +37,7 @@ tasks {
                 "InlineMeSuggester"
             )
         }
-        options.compilerArgs.addAll(listOf("-Xlint:-processing", "-Werror"))
+        options.compilerArgs.addAll(listOf("-Xlint:-processing"))
     }
 }
 

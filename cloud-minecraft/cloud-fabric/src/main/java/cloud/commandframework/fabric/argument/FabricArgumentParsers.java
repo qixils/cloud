@@ -313,14 +313,14 @@ public final class FabricArgumentParsers {
         ) throws CommandSyntaxException {
             final Component contents = message.toComponent(source, useSelectors);
             final MessageArgument.Part[] selectors =
-                    ((MessageArgumentMessageAccess) message).accessor$parts();
+                    ((MessageArgumentMessageAccess) (Object) message).accessor$parts();
             final Collection<Entity> entities;
             if (!useSelectors || selectors.length == 0) {
                 entities = Collections.emptySet();
             } else {
                 entities = new HashSet<>();
                 for (final MessageArgument.Part selector : selectors) {
-                    entities.addAll(((MessageArgumentPartAccess) selector)
+                    entities.addAll(((MessageArgumentPartAccess) (Object) selector)
                             .accessor$selector()
                             .findEntities(source));
                 }

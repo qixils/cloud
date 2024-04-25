@@ -153,12 +153,12 @@ public final class IntRangeArgument<C> extends CommandArgument<C, MinMaxBounds.I
          */
         public @NonNull Builder<C> asOptionalWithDefault(final MinMaxBounds.@NonNull Ints defaultValue) {
             final StringBuilder value = new StringBuilder(6);
-            if (defaultValue.getMin() != null) {
-                value.append(defaultValue.getMin());
+            if (defaultValue.min().isPresent()) {
+                value.append(defaultValue.min().get());
             }
             value.append("..");
-            if (defaultValue.getMax() != null) {
-                value.append(defaultValue.getMax());
+            if (defaultValue.max().isPresent()) {
+                value.append(defaultValue.max().get());
             }
             return this.asOptionalWithDefault(value.toString());
         }

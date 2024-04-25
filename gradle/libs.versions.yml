@@ -48,10 +48,10 @@ versions:
   velocityApi: 3.1.0
   spongeApi7: 7.3.0
   jetbrainsAnnotations: 23.0.0
-  fabricMinecraft: 1.19.4-pre1
-  fabricLoader: 0.14.14
-  fabricApi: 0.75.0+1.19.4
-  fabricPermissionsApi: 0.2-SNAPSHOT
+  fabricMinecraft: 1.20.5
+  fabricLoader: 0.15.10
+  fabricApi: 0.97.6+1.20.5
+  fabricPermissionsApi: 0.3.1
 
   # testing
   jupiterEngine : 5.9.1
