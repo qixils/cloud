@@ -39,7 +39,7 @@ public class CommandsMixin {
             at = @At(value = "NEW", target = "com/mojang/brigadier/StringReader", remap = false),
             require = 0
     )
-    private StringReader cloud$newStringReader(final String arguments) {
+    private static StringReader cloud$newStringReader(final String arguments) {
         return new CloudStringReader(arguments);
     }
 }
