@@ -101,14 +101,14 @@ setupKotlinModule("cloud-kotlin-coroutines-annotations")
 
 // Minecraft Modules
 setupMinecraftModule("cloud-brigadier")
-//setupMinecraftModule("cloud-bukkit")
-//setupMinecraftModule("cloud-fabric")
-//setupMinecraftModule("cloud-paper")
-//setupMinecraftModule("cloud-velocity")
+setupMinecraftModule("cloud-bukkit")
+setupMinecraftModule("cloud-fabric")
+setupMinecraftModule("cloud-paper")
+setupMinecraftModule("cloud-velocity")
 setupMinecraftModule("cloud-sponge")
-//setupMinecraftModule("cloud-sponge7")
-//setupMinecraftModule("cloud-bungee")
-//setupMinecraftModule("cloud-cloudburst")
+setupMinecraftModule("cloud-sponge7")
+setupMinecraftModule("cloud-bungee")
+setupMinecraftModule("cloud-cloudburst")
 setupMinecraftModule("cloud-minecraft-extras")
 
 // IRC Modules
