@@ -15,6 +15,11 @@ pluginManagement {
             name = "jmpSnapshots"
             mavenContent { snapshotsOnly() }
         }
+        // For VanillaGradle Snapshots
+        maven("https://repo.spongepowered.org/repository/maven-public/") {
+            name = "sponge"
+            mavenContent { snapshotsOnly() }
+        }
     }
     includeBuild("build-logic")
 }
@@ -22,6 +27,7 @@ pluginManagement {
 plugins {
     id("ca.stellardrift.polyglot-version-catalogs") version "6.0.1"
     id("fabric-loom") version "1.6-SNAPSHOT"
+    id("org.spongepowered.gradle.vanilla") version "0.2.1-SNAPSHOT"
 }
 
 dependencyResolutionManagement {
@@ -90,29 +96,30 @@ setupKotlinModule("cloud-kotlin-coroutines")
 setupKotlinModule("cloud-kotlin-coroutines-annotations")
 
 // Discord Modules
-setupDiscordModule("cloud-javacord")
-setupDiscordModule("cloud-jda")
+//setupDiscordModule("cloud-javacord")
+//setupDiscordModule("cloud-jda")
 
 // Minecraft Modules
 setupMinecraftModule("cloud-brigadier")
-setupMinecraftModule("cloud-bukkit")
-setupMinecraftModule("cloud-fabric")
-setupMinecraftModule("cloud-paper")
-setupMinecraftModule("cloud-velocity")
-//setupMinecraftModule("cloud-sponge")
-setupMinecraftModule("cloud-sponge7")
-setupMinecraftModule("cloud-bungee")
-setupMinecraftModule("cloud-cloudburst")
+//setupMinecraftModule("cloud-bukkit")
+//setupMinecraftModule("cloud-fabric")
+//setupMinecraftModule("cloud-paper")
+//setupMinecraftModule("cloud-velocity")
+setupMinecraftModule("cloud-sponge")
+//setupMinecraftModule("cloud-sponge7")
+//setupMinecraftModule("cloud-bungee")
+//setupMinecraftModule("cloud-cloudburst")
 setupMinecraftModule("cloud-minecraft-extras")
 
 // IRC Modules
-setupIrcModule("cloud-pircbotx")
+//setupIrcModule("cloud-pircbotx")
 
 // Example Modules
-setupExampleModule("example-bukkit")
-setupExampleModule("example-bungee")
-setupExampleModule("example-jda")
-setupExampleModule("example-velocity")
+//setupExampleModule("example-bukkit")
+//setupExampleModule("example-bungee")
+//setupExampleModule("example-jda")
+//setupExampleModule("example-velocity")
+//setupExampleModule("example-sponge")
 
 fun setupIrcModule(name: String) =
         setupSubproject(name, file("cloud-irc/$name"))
